@@ -1,3 +1,10 @@
+/*
+ * Name: Thi Ty Tran
+ * Date: July 23, 2024
+ * File: PerishableProduct.java
+ * Description: This code defines a PerishableProduct class that extends the Product class.
+ */
+
 import java.util.Date;
 import java.text.SimpleDateFormat;
 
