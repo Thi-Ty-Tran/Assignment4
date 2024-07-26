@@ -140,6 +140,7 @@ public class Main {
         }
     }
 
+    // Deletes a product by its SKU
     private static void deleteProductBySku() {
         String sku = getStringInput("Enter SKU to delete: ");
         Product product = findProductBySku(sku);
@@ -151,7 +152,7 @@ public class Main {
         }
     }
 
-    // Deletes a product by its SKU
+    // Displays a product by its SKU
     private static void displayProductBySku() {
         // Get the SKU of the product to delete
         String sku = getStringInput("Enter SKU to display: ");
@@ -189,21 +190,29 @@ public class Main {
         return null;
     }
 
-    // Ge a string input from the user
+    // Get a string input from the user
     private static String getStringInput(String prompt) {
         System.out.print(prompt);
         return scanner.nextLine().trim();
     }
 
-    // Get an integer input from the user
+    // Get an integer input from the user with error handling
     private static int getIntInput(String prompt) {
-        System.out.print(prompt);
-        try {
-            return Integer.parseInt(scanner.nextLine().trim());
-        } catch (NumberFormatException e) {
-            // Handle invalid integer input
-            throw new IllegalArgumentException("Invalid input. Please enter a valid integer.");
+        boolean validInput = false;
+        int userInput = 0;
+
+        while (!validInput) {
+            System.out.print(prompt);
+            String input = scanner.nextLine().trim();
+            try {
+                userInput = Integer.parseInt(input);
+                validInput = true;
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid integer.");
+            }
         }
+
+        return userInput;
     }
 
     // Get a double input from the user
