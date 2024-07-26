@@ -175,7 +175,7 @@ public class Main {
             // Display all the products
             for (Product product : products) {
                 System.out.println(product);
-                System.out.println("------------------------------");
+                System.out.println("------------------------------------------------------------");
             }
         }
     }
